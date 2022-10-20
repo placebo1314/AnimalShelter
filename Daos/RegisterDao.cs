@@ -4,7 +4,6 @@ using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-//using Codecool.CodecoolShop.Daos.Implementations;
 using TestProject02.Models;
 using Microsoft.AspNetCore.Http;
 using System.Data.SqlClient;
