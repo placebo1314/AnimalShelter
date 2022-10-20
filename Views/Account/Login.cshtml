@@ -1,0 +1,19 @@
+@model TestProject02.Models.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+<h1>@ViewData["Title"]</h1>
+<form method="post">
+    <div id="email-div" class="form-group">
+        <label asp-for="Email"></label>
+        <input id="email" type="email" class="form-control" asp-for="Email" />
+        <span class="text-danger" asp-validation-for="Email"></span>
+    </div>
+    <div id="password-div" class="form-group">
+        <label asp-for="Password"></label>
+        <input id="password" type="password" class="form-control" asp-for="Password">
+        <span class="text-danger" asp-validation-for="Password"></span>
+    </div>
+    <input id="submit-login" type="submit" value="Login" class="btn btn-primary" />
+</form>
+

@@ -1,0 +1,100 @@
+﻿@model TestProject02.Models.AnimalsViewModel
+@{
+    ViewData["Title"] = "AnimalsPage";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+    <button id="addAnimal" class="adminButton">
+        <a asp-controller="Home" asp-action="Index">Back</a>
+    </button>
+
+    <table>
+        <thead>
+        <tr>
+             
+            <th><a id="sortBynclusionDate" asp-controller="Home" asp-action="Animals" 
+                asp-route-sortBy="inclusion"
+                   asp-route-species=@Model.Species
+                asp-route-order=@Model.Order
+                asp-route-change=true>
+                Gazdikeresés kezdete</a></th>
+                <th></th>
+            <th><a id="sortByName" asp-controller="Home" asp-action="Animals" 
+                asp-route-sortBy="name"
+                   asp-route-species=@Model.Species
+                   asp-route-order=@Model.Order
+                asp-route-change=true>
+                Név</a></th>
+            <th>
+                Fajta
+                <select id="species">
+                    <option value="@Model.Species" selected> @Model.Species </option>
+                    <option value="Kutya"> Kutya </option>
+                    <option value="Macska"> Macska</option>
+                    <option value="Egyéb"> Egyéb</option>
+                    <option value="Mind"> Mind</option>
+                </select>
+            </th>
+            <th>Szín</th>
+            <th></th>
+            </tr>
+        </thead>
+    <tbody style="cursor: pointer;">
+        @foreach (var element in Model.Animals)
+            {
+            <tr id=@element.Id class="animaltr">
+                <td>@element.Inclusion</td>
+                <td><img src=@element.Image class="tiny-image"></td>
+                <td>@element.Name (@element.Age)</td>
+                <td>@element.Species - @element.Type</td>
+                <td>@element.Color</td>
+                <td>@element.Description</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+@{
+    var prevDisabled = !Model.EnablePrevious ? "disabled" : "";
+    var nextDisabled = !Model.EnableNext ? "disabled" : "";
+}
+
+<div class="pagination">
+<a id="backButton" asp-controller="Home" asp-action="Animals"
+       asp-route-sortBy=@Model.SortBy
+       asp-route-page=@(Model.Page-1)
+       asp-route-order=@Model.Order
+       asp-route-species=@Model.Species
+   class="page-button @prevDisabled">
+    Back
+</a>
+    <p id="actualPageIndex" class="actual-page">@Model.Page</p>
+<a id="nextButton" asp-controller="Home" asp-action="Animals"
+       asp-route-sortBy=@Model.SortBy
+       asp-route-page=@(Model.Page+1)
+       asp-route-order=@Model.Order
+       asp-route-species=@Model.Species
+   class="page-button @nextDisabled">
+    Next
+</a>
+</div>
+
+@foreach (var element in Model.Animals)
+{
+    <div id=@element.Id class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="animal-card">
+                        <h2>@element.Name (@element.Age)</h2>
+                        <h4>@element.Species - @element.Type</h4>
+                <p class="background" style="background-image: url('@element.BgImage');">( @element.Inclusion ) @element.Description</p>
+                <img src=@element.Image class="card-image">
+            </div>
+
+        </div>
+
+    </div>
+}

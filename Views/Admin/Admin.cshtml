@@ -1,0 +1,52 @@
+﻿@model TestProject02.Models.Animal
+@{
+    ViewData["Title"] = "AdminPage";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+@if (@Context.Session.GetString("Admin") == "Y")
+{
+    <button id="addAnimal" class="adminButton">
+        <a asp-controller="Admin" asp-action="AddAnimal">AddAnimal</a>
+    </button>
+    <button id="editUsers" class="adminButton">
+        <a asp-controller="Admin" asp-action="Administrators">Administrators</a>
+    </button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Species</th>
+                <th>Image</th>
+                <th>BgImage</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var element in ViewBag.animals)
+            {
+                <tr>
+                    <td>@element.Name</td>
+                    <td>@element.Species</td>
+                    <td><img src=@element.Image class="tiny-image"></td>
+                    <td><img src=@element.BgImage class="tiny-image"></td>
+                    <td>
+                        <a asp-controller="Admin"
+                   asp-action="Edit" asp-route-id=@element.Id><i class="fi-page-edit"></i></a>
+                    </td>
+                    <td><a asp-controller="Admin"
+                   asp-action="DeleteAnimal" asp-route-id=@element.Id onclick="return confirm('Delete @element.Name?')">
+                   <i class="fa fa-trash" aria-hidden="true">
+                            </i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+

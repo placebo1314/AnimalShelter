@@ -1,0 +1,12 @@
+﻿html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #edddd4;
+  color: #283d3b;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}

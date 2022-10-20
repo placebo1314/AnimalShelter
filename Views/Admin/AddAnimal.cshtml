@@ -1,0 +1,61 @@
+﻿@model TestProject02.Models.Animal
+@{
+    ViewData["Title"] = "AddAnimal";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form method="post" enctype="multipart/form-data" id="form">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input type="text" class="form-control" asp-for="Name" required />
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Species"></label>
+        <select required asp-for="Species">
+            <option value="Kutya"> Kutya </option>
+            <option value="Macska"> Macska</option>
+            <option value="Egyéb"> Egyéb</option>
+            <option value="Mind" selected> Mind</option>
+        </select>
+        <span class="text-danger" asp-validation-for="Species"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea rows="4" cols="35" maxlength="219" type="text" class="form-control" form="form" asp-for="Description"></textarea>
+        <span class="text-danger" asp-validation-for="Description"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Age"></label>
+        <input type="number" min="0" max="100" class="form-control" asp-for="Age" />
+        <span class="text-danger" asp-validation-for="Age"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Color"></label>
+        <input type="text" class="form-control" asp-for="Color" />
+        <span class="text-danger" asp-validation-for="Color"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Type"></label>
+        <input type="text" class="form-control" asp-for="Type" />
+        <span class="text-danger" asp-validation-for="Type"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Image"></label>
+        <input type="file" name="image" class=" form-control" asp-for="Image" />
+        <span class="text-danger" asp-validation-for="Image"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BgImage"></label>
+        <input type="file" name="bgImage" class="form-control" asp-for="BgImage" />
+        <span class="text-danger" asp-validation-for="BgImage"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Inclusion"></label>
+        <input required type="date" max=@ViewBag.ActualDate name="inclusion" class="form-control" asp-for="Inclusion" />
+        <span class="text-danger" asp-validation-for="Inclusion"></span>
+    </div>
+
+    <input id="submit-animal" type="submit" value="Submit" class="btn btn-primary" />
+    <span style="color:green">@Html.Raw(ViewBag.Message)</span>
+</form>

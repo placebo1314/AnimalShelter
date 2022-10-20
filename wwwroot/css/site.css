@@ -1,0 +1,303 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #edddd4;
+  color: #283d3b;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0 1.5rem 0 1rem;
+  line-height: 3rem;
+}
+
+i {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+header {
+  margin-bottom: 1rem;
+  display: flex;
+  
+  justify-content: space-between;
+}
+
+.control-button {
+    padding: 2rem;
+    border-radius: 10%;
+    font-size:large;
+    background-color:aqua;
+}
+
+#index_menu {
+    margin: 1rem 0 0 1rem;
+    color: #edddd4;
+    background: #197278;
+    font-size: 2.5rem;
+    z-index: 2;
+    border-radius: 50%;
+    padding: 0.8rem 1.1rem 0.8rem 1.1rem;
+    width: 1.8rem;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: #197278;
+  color: #edddd4;
+  transform: translateX(-10rem);
+  padding-top: 3.6rem;
+  transition: transform 420ms ease-in-out;
+}
+
+nav a  {
+  color: #edddd4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-active {
+  transform: translateX(0);
+}
+
+main h1 {
+  margin: 0 1rem;
+  padding-top: 0.8rem;
+  padding-bottom: 1.2rem;
+  background: rgba(0, 0, 0, 0.5);
+  text-shadow: 3px 2px 0.8px #edddd4;
+  font-size: 3rem;
+  font-weight: bolder;
+}
+
+section {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 33rem;
+  box-shadow: 0 -5px 0 0 rgba(0, 0, 0, 0.5);
+}
+
+.section1 {
+  background-image: url("../src/dogWithFamily.webp");
+}
+
+.section2 {
+  background-image: url("../src/dogAlone.jpg");
+}
+
+.login {
+  background-color: darkblue;
+  padding: 0.2rem;
+  color: #edddd4;
+  font-weight: bold;
+  border-radius: 10%;
+  height: 2rem;
+}
+
+#themeSwitch {
+  position:fixed;
+  bottom: 10px;
+  right: 8px;
+  background-color: darkblue;
+  padding: 0.2rem;
+  color: #edddd4;
+  font-weight: bold;
+  border-radius: 10%;
+}
+
+.bg-dark {
+  background-color: #504a47;
+  color: #c5cecd;
+}
+
+.tiny-image {
+    width: 5rem;
+    height: 5rem;
+    justify-content: center;
+}
+
+.edit-body {
+    display: flex;
+    flex-direction: row;
+    width: 15rem;
+}
+
+.animal-card {
+    margin: 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.background {
+    backdrop-filter: blur(2px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #edddd4;
+    text-shadow: 0.08rem 0.08rem 0.1rem #c5cecd;
+    ;
+}
+
+.card-description-container {
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(5px);
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.card-description {
+    width: 15rem;
+    height: 15rem;
+    z-index: 0;
+
+}
+
+.card-image {
+    max-width: 15rem;
+    max-height: 15rem;
+    object-fit: cover;
+}
+
+#message {
+    position: absolute;
+    top: 3.1rem;
+    right: 1.5rem;
+    color: chartreuse;
+    font-style: oblique;
+    border: 1px solid darkgrey;
+    margin: 2px;
+    border-radius: 0.3rem;
+    background-color:burlywood;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.pagination {
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    text-align: center;
+    max-width: 10rem;
+}
+
+.page-button {
+    padding: 0 0.4rem;
+    border-radius: 10%;
+    border: 0.1rem solid black;
+    color: chocolate;
+    max-height: 2rem;
+    align-self: center;
+}
+
+.disabled {
+    pointer-events: none;
+    border: none;
+}
+
+.actual-page {
+    font-size: larger;
+    max-height: 2rem;
+    padding: 0 0.4rem;
+}
+/*#map {
+    height: 400px;
+    width: 600px;
+}*/
+footer {
+    position: sticky;
+    min-height: 10vh;
+    background-image: linear-gradient(180deg, #708090, #708090, #000000);
+}
+footer ul { 
+  position: relative; top: 5px;
+padding: 0; margin: 0;
+display: flex;
+}
+footer ul li{ 
+  list-style: none;
+margin: 10px 15px 10px 0;
+}
+footer ul li .fa {
+font-size:30px;
+line-height: 60px;
+transition: .6s;
+color: #2F4F4F;
+}
+footer ul li a {
+position: relative;
+display: block;
+width: 60px; height: 60px; border-radius: 50%;
+text-align: center;
+background-color: white;
+transition: .6s;
+}
+footer ul li a:hover {
+transform: translate(3px, -12px);
+  box-shadow: -1px 5px 4px #FFFAFA;	
+}
+footer ul li a:hover .fa {
+color: white;
+}
+footer ul li:nth-child(1) a:hover {
+background-color:#3b5999;
+}
+footer ul li:nth-child(2) a:hover {
+background-color:#55acee;
+}
+footer ul li:nth-child(3) a:hover {
+background-color:#e4405f;
+}
+footer ul li:nth-child(4) a:hover {
+background-color:#0077B5;
+}

@@ -1,0 +1,53 @@
+﻿@model TestProject02.Models.User
+@{
+    ViewData["Title"] = "AdminPage";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+@if (@Context.Session.GetString("Admin") == "Y")
+{
+    <button id="Back" class="adminButton">
+        <a asp-controller="Admin" asp-action="Admin">Back</a>
+    </button>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>email</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var element in ViewBag.users)
+            {
+                <tr>
+                    <td>@element.Id</td>
+                    <td>@element.Name</td>
+                    <td>@element.Email</td>
+                    @if (@element.Admin == "Y")
+                    {
+                        @if (@Context.Session.GetString("Name") != @element.Name)
+                        {
+                            <td>
+                                <a asp-controller="Admin"
+                   asp-action="RemoveAdmin" asp-route-id=@element.Id onclick="return confirm('@element.Name remove from admins ?')">
+                                <i class="fa fa-trash" aria-hidden="true">
+                                </i>
+                            </a>
+                        </td>
+                        }
+                    }
+                    else
+                    {
+                        <td>
+                            <a asp-controller="Admin"
+                   asp-action="AddAdmin" asp-route-id=@element.Id onclick="return confirm('@element.Name add to admins ?')"><i class="fi-plus"></i></a>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
