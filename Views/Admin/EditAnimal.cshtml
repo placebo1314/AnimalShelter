@@ -37,9 +37,9 @@
         <span class="text-danger" asp-validation-for="Age"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Color"></label>
-        <input value=@ViewBag.animal.Color type="text" class="form-control" asp-for="Color" />
-        <span class="text-danger" asp-validation-for="Color"></span>
+        <label asp-for="Sex"></label>
+        <input value=@ViewBag.animal.Sex type="text" class="form-control" asp-for="Sex" />
+        <span class="text-danger" asp-validation-for="Sex"></span>
     </div>
     <div class="form-group">
         <label asp-for="Type"></label>
@@ -66,7 +66,7 @@
         <div class="card-description">
         <h2>@ViewBag.animal.Name (@ViewBag.animal.Age)</h2>
         <h4>@ViewBag.animal.Species - @ViewBag.animal.Type</h4>
-        <h4>@ViewBag.animal.Color</h4>
+        <h4>@ViewBag.animal.Sex</h4>
         <p>@ViewBag.animal.Description</p>
         </div>
         </div>

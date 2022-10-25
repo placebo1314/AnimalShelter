@@ -15,7 +15,7 @@ CREATE TABLE animals (
     species VARCHAR (16),
     description VARCHAR(220),
     age int,
-    color VARCHAR (16),
+    sex VARCHAR (16),
     type VARCHAR (16),
     image text,
     bgimage text,
