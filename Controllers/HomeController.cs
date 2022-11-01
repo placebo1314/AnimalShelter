@@ -29,7 +29,15 @@ public class HomeController : Controller
         return View(_homeService.GetDisplayAnimalsData(species, sortBy, page, order, change));
     }
 
-    public IActionResult Privacy()
+    public IActionResult Donations()
+    {
+        return View();
+    }
+    public IActionResult Adoption()
+    {
+        return View();
+    }
+    public IActionResult Connections()
     {
         return View();
     }

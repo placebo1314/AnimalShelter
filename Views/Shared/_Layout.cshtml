@@ -24,19 +24,23 @@
 
         @if (@Context.Session.GetString("Name") == null)
         {
+            <div class="controll-button-outer">
             <a id="login" class="control-button" asp-controller="Account" asp-action="Login">Bejelentkezés</a>
+            </div>
+            <div class="controll-button-outer">
             <a id="register" class="control-button" asp-controller="Account" asp-action="Register">Regisztráció</a>
+            </div>
         }
         else
         {
-            <a id="logout" class="control-button" asp-controller="Account" asp-action="LogOut">Kilépés: @Context.Session.GetString("Name")</a>
+            <a id="logout" class="control-button" asp-controller="Account" asp-action="LogOut">Kilépés: @Context.Session.GetString("Name")  </a>
         }
     </header>
     <nav id="nav">
         <ul>
-            <li><a href="#"><i class="fi-home"></i> Adományok </a></li>
-            <li><a href="#"><i class="fi-target"></i> Örökbefogadás </a></li>
-            <li><a href="#"><i class="fi-at-sign"></i> Kapcsolat </a></li>
+            <li><a asp-controller="Home" asp-action="Donations"><i class="fi-home"></i> Adományok </a></li>
+            <li><a asp-controller="Home" asp-action="Adoption"><i class="fi-target"></i> Örökbefogadás </a></li>
+            <li><a asp-controller="Home" asp-action="Connections"><i class="fi-at-sign"></i> Kapcsolat </a></li>
         </ul>
     </nav>
     
@@ -47,7 +51,7 @@
     </div>
 
     <a id="themeSwitch" class="control-button">
-        Activate Dark Theme
+        Activate Dark Theme  
     </a>
 
     <footer>
