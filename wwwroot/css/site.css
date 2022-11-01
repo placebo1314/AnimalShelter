@@ -1,14 +1,15 @@
 html {
-  height: 100%;
+    background: linear-gradient(165deg, rgba(177, 162, 150, 0.91), rgba(177, 162, 150, 0.7), rgba(177, 162, 150, 0.8), burlywood, burlywood);
 }
 
 body {
-  font-family: 'Quicksand', sans-serif;
-  background-color: #edddd4;
-  color: #283d3b;
-  margin: 0;
-  padding: 0;
-  height: 100%;
+    font-family: 'Quicksand', sans-serif;
+    color: #283d3b;
+    margin: 0;
+    padding: 0;
+    height:auto;
+    max-width: 100vw;
+
 }
 
 ul {
@@ -23,39 +24,63 @@ i {
 }
 
 header {
-  margin-bottom: 1rem;
-  display: flex;
   
+  display: flex;
   justify-content: space-between;
 }
 
-.control-button {
-    padding: 2rem;
-    border-radius: 10%;
-    font-size:large;
-    background-color:aqua;
+.controll-button-outer {
+
+    padding: 0.1rem;
+    border-radius: 6%;
+    font-size: large;
+    color: #edddd4;
+    border: 2rem solid #b1a296;
+    border-image: url("/src/border.png") 143 stretch;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: auto;
+    font-weight: bold;
+    text-decoration:none;
+
+    width:min-content;
 }
 
+.control-button {
+    position: relative;
+    right: 0.25rem;
+    text-decoration: none;
+}
+
+
 #index_menu {
-    margin: 1rem 0 0 1rem;
+    
     color: #edddd4;
-    background: #197278;
+    background-color:burlywood;
     font-size: 2.5rem;
     z-index: 2;
     border-radius: 50%;
-    padding: 0.8rem 1.1rem 0.8rem 1.1rem;
+    padding: 0.8rem 0.8rem 0.8rem 0.8rem;
     width: 1.8rem;
+    height: 1.8rem;
+    display: flex;
+    align-self: center;
 }
+    #index_menu::before {
+        align-self: center;
+    }
 
 nav {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  background: #197278;
-  color: #edddd4;
-  transform: translateX(-10rem);
-  padding-top: 3.6rem;
-  transition: transform 420ms ease-in-out;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-image: linear-gradient(92deg, #b1a296, rgba(237, 191, 46, 0.7), rgba(237, 191, 46, 0.41));
+    color: #edddd4;
+    transform: translateX(-15rem);
+    padding-top: 3.6rem;
+    transition: transform 420ms ease-in-out;
 }
 
 nav a  {
@@ -69,13 +94,15 @@ nav a  {
 }
 
 main h1 {
-  margin: 0 1rem;
-  padding-top: 0.8rem;
-  padding-bottom: 1.2rem;
-  background: rgba(0, 0, 0, 0.5);
-  text-shadow: 3px 2px 0.8px #edddd4;
-  font-size: 3rem;
-  font-weight: bolder;
+    margin: 0 1rem;
+    padding-top: 0.8rem;
+    padding-bottom: 1.2rem;
+    background: rgba(0, 0, 0, 0.5);
+    text-shadow: 3px 2px 0.8px #edddd4;
+    font-size: 3rem;
+    font-weight: bolder;
+    box-shadow: 0 -0.2rem 0 0 rgba(0, 0, 0, 0.3);
+    border-radius: 5%;
 }
 
 section {
@@ -96,23 +123,19 @@ section {
 }
 
 .login {
-  background-color: darkblue;
   padding: 0.2rem;
-  color: #edddd4;
-  font-weight: bold;
-  border-radius: 10%;
-  height: 2rem;
 }
 
 #themeSwitch {
   position:fixed;
   bottom: 10px;
   right: 8px;
-  background-color: darkblue;
-  padding: 0.2rem;
   color: #edddd4;
   font-weight: bold;
   border-radius: 10%;
+  font-size: small;
+  z-index: 1;
+  cursor: pointer;
 }
 
 .bg-dark {
@@ -132,97 +155,42 @@ section {
     width: 15rem;
 }
 
-.animal-card {
-    margin: 3px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.background {
-    backdrop-filter: blur(2px);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #edddd4;
-    text-shadow: 0.08rem 0.08rem 0.1rem #c5cecd;
-    ;
-}
-
-.card-description-container {
-    position: relative;
-    width: 15rem;
-    height: 15rem;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    backdrop-filter: blur(5px);
-    z-index: -1;
-    opacity: 0.8;
-}
-
-.card-description {
-    width: 15rem;
-    height: 15rem;
-    z-index: 0;
-
-}
-
-.card-image {
-    max-width: 15rem;
-    max-height: 15rem;
-    object-fit: cover;
-}
-
 #message {
     position: absolute;
-    top: 3.1rem;
-    right: 1.5rem;
+    top: 3.6rem;
+    right: 1.7rem;
     color: chartreuse;
     font-style: oblique;
     border: 1px solid darkgrey;
     margin: 2px;
-    border-radius: 0.3rem;
-    background-color:burlywood;
+    border-radius: 10%;
+    background-color: rgba(237, 191, 46, 0.9);
 }
+.description {
+    background-image: linear-gradient(92deg, rgba(237, 191, 46, 0.14), rgba(237, 191, 46, 0.24));
 
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+.tab {
+    margin: 2rem;
+    width: 80%;
+    color: white;
+    max-width: 86%;
+    padding-top: 1rem;
+    border-collapse: collapse;
+    border-radius: 50px;
 }
-
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
+    .tab img {
+        box-shadow: 0px 0.4rem 0.6rem rgba(0,0,0,0.8)
     }
-
+th {
+    margin-bottom: 2rem;
+}
+.animaltr {
+    border-bottom: 1rem solid rgba(237, 191, 46, 0.34);
+}
+td {
+    max-width: 15%;
+}
 .pagination {
     display: flex;
     justify-content: space-around;
@@ -250,14 +218,16 @@ section {
     max-height: 2rem;
     padding: 0 0.4rem;
 }
-/*#map {
-    height: 400px;
-    width: 600px;
-}*/
+
+@media only screen and (max-width: 768px) {
+
+}
+
+/*footer: */
 footer {
-    position: sticky;
+    bottom: -13px;
     min-height: 10vh;
-    background-image: linear-gradient(180deg, #708090, #708090, #000000);
+    background-image: linear-gradient(180deg, rgba(87, 72, 53, 0.92), rgba(87, 72, 53, 0.85), #000000);
 }
 footer ul { 
   position: relative; top: 5px;

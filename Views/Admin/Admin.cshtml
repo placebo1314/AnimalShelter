@@ -7,12 +7,10 @@
 
 @if (@Context.Session.GetString("Admin") == "Y")
 {
-    <button id="addAnimal" class="adminButton">
-        <a asp-controller="Admin" asp-action="AddAnimal">AddAnimal</a>
-    </button>
-    <button id="editUsers" class="adminButton">
-        <a asp-controller="Admin" asp-action="Administrators">Administrators</a>
-    </button>
+
+    <a id="addAnimal" class="control-button" asp-controller="Admin" asp-action="AddAnimal">AddAnimal</a>
+
+    <a id="editUsers" class="control-button" asp-controller="Admin" asp-action="Administrators">Administrators</a>
 
     <table>
         <thead>

@@ -1,0 +1,48 @@
+﻿/*Shining effect:*/
+.modal-content:before {
+    content: '';
+    position: absolute;
+    height: 500%;
+    width: 20px;
+    background: #f3f3f3;
+    box-shadow: 0 0 10px #fff;
+    filter: blur(1px);
+    opacity: 0.85;
+    top: -30px;
+    transform: rotate(-20deg) translateX(-60px);
+    animation: shining 9.8s infinite ease-in-out;
+    animation-delay: 2.1s;
+}
+@keyframes shining {
+    10% {
+        transform: rotate(-20deg) translateX(-60px);
+    }
+
+    20% {
+        transform: rotate(-20deg) translateX(85rem);
+    }
+
+    21% {
+        transform: rotate(-20deg) translateX(85rem);
+    }
+
+    30% {
+        transform: rotate(-20deg) translateX(-60px);
+    }
+
+    50% {
+        transform: rotate(-20deg) translateX(-60px);
+    }
+
+    60% {
+        transform: rotate(-20deg) translateX(85rem);
+    }
+
+    90% {
+        transform: rotate(-20deg) translateX(85rem);
+    }
+
+    100% {
+        transform: rotate(-20deg) translateX(-60px);
+    }
+}

@@ -1,4 +1,8 @@
 ﻿@model TestProject02.Models.AnimalsViewModel
+@section Styles {
+    <link href="~/css/glassEffect.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/modal.css" rel="stylesheet" type="text/css" />
+}
 @{
     ViewData["Title"] = "AnimalsPage";
 }
@@ -9,7 +13,7 @@
         <a asp-controller="Home" asp-action="Index">Back</a>
     </button>
 
-    <table>
+    <table class="tab">
         <thead>
         <tr>
              
@@ -36,7 +40,7 @@
                     <option value="Mind"> Mind</option>
                 </select>
             </th>
-            <th>Szín</th>
+            <th>Ivar</th>
             <th></th>
             </tr>
         </thead>
@@ -48,8 +52,9 @@
                 <td><img src=@element.Image class="tiny-image"></td>
                 <td>@element.Name (@element.Age)</td>
                 <td>@element.Species - @element.Type</td>
-                <td>@element.Color</td>
-                <td>@element.Description</td>
+                <td>@element.Sex</td>
+                <td class="description">@element.Description</td>
+                
             </tr>
             }
         </tbody>
@@ -82,15 +87,15 @@
 
 @foreach (var element in Model.Animals)
 {
-    <div id=@element.Id class="modal">
+    <div id=@element.Id class="modal" style="background-image: url('@element.BgImage');">
 
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
             <div class="animal-card">
-                        <h2>@element.Name (@element.Age)</h2>
-                        <h4>@element.Species - @element.Type</h4>
-                <p class="background" style="background-image: url('@element.BgImage');">( @element.Inclusion ) @element.Description</p>
+                <h2>@element.Name</h2>
+                <h4>@element.Species - @element.Type</h4>
+                <p>@element.Inclusion - (@element.Age éves @element.Sex) @element.Description</p>
                 <img src=@element.Image class="card-image">
             </div>
 

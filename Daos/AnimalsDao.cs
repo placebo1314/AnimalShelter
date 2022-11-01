@@ -48,7 +48,7 @@ namespace TestProject02.Daos
                         animal.Name = (string)reader["name"];
                         animal.Description = reader["description"] != DBNull.Value ? (string)reader["description"] : null;
                         animal.Age = reader["age"] != DBNull.Value ? (int)reader["age"] : null;
-                        animal.Color = reader["color"] != DBNull.Value ? (string)reader["color"] : null;
+                        animal.Sex = reader["sex"] != DBNull.Value ? (string)reader["sex"] : null;
                         animal.Type = reader["type"] != DBNull.Value ? (string)reader["type"] : null;
                         animal.Image = reader["image"] != DBNull.Value ? (string)reader["image"] : null;
                         animal.BgImage = reader["bgimage"] != DBNull.Value ? (string)reader["bgimage"] : null;
@@ -98,7 +98,7 @@ namespace TestProject02.Daos
                             Name = (string)reader["name"],
                             Description = reader["description"] != DBNull.Value ? (string)reader["description"] : null,
                             Age = reader["age"] != DBNull.Value ? (int)reader["age"] : null,
-                            Color = reader["color"] != DBNull.Value ? (string)reader["color"] : null,
+                            Sex = reader["sex"] != DBNull.Value ? (string)reader["sex"] : null,
                             Type = reader["type"] != DBNull.Value ? (string)reader["type"] : null,
                             Image = reader["image"] != DBNull.Value ? (string)reader["image"] : null,
                             BgImage = reader["bgimage"] != DBNull.Value ? (string)reader["bgimage"] : null,
@@ -118,8 +118,8 @@ namespace TestProject02.Daos
         }
         public void Add(Animal item)
         {
-            const string cmdText = @"INSERT INTO animals (name, description, age, color, type, image, bgimage, species, inclusion)
-                                VALUES (@name, @description, @age, @color, @type, @image, @bgimage, @species, @inclusion)
+            const string cmdText = @"INSERT INTO animals (name, description, age, sex, type, image, bgimage, species, inclusion)
+                                VALUES (@name, @description, @age, @sex, @type, @image, @bgimage, @species, @inclusion)
                                 SELECT SCOPE_IDENTITY();";
             try
             {
@@ -133,7 +133,7 @@ namespace TestProject02.Daos
                     cmd.Parameters.AddWithValue("@description", item.Description != null ? item.Description : DBNull.Value);
                     cmd.Parameters.AddWithValue("@type", item.Type != null ? item.Type : DBNull.Value);
                     cmd.Parameters.AddWithValue("@age", item.Age != null ? item.Age : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@color", item.Color != null ? item.Color : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@sex", item.Sex != null ? item.Sex : DBNull.Value);
                     cmd.Parameters.AddWithValue("@image", item.Image != null ? item.Image : DBNull.Value);
                     cmd.Parameters.AddWithValue("@bgimage", item.BgImage != null ? item.BgImage : DBNull.Value);
                     cmd.Parameters.AddWithValue("@species", item.Species != null ? item.Species : DBNull.Value);
@@ -173,7 +173,7 @@ namespace TestProject02.Daos
 
         public void Edit(Animal animal)
         {
-            const string cmdText = @"UPDATE animals SET name=@name, description=@description, age=@age, color=@color, type=@type, image=@image, bgimage=@bgimage, species=@species
+            const string cmdText = @"UPDATE animals SET name=@name, description=@description, age=@age, sex=@sex, type=@type, image=@image, bgimage=@bgimage, species=@species
                                 WHERE id=@id;";
             try
             {
@@ -188,7 +188,7 @@ namespace TestProject02.Daos
                     cmd.Parameters.AddWithValue("@description", animal.Description != null ? animal.Description : DBNull.Value);
                     cmd.Parameters.AddWithValue("@type", animal.Type != null ? animal.Type : DBNull.Value);
                     cmd.Parameters.AddWithValue("@age", animal.Age != null ? animal.Age : DBNull.Value);
-                    cmd.Parameters.AddWithValue("@color", animal.Color != null ? animal.Color : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@sex", animal.Sex != null ? animal.Sex : DBNull.Value);
                     cmd.Parameters.AddWithValue("@image", animal.Image != null ? animal.Image : DBNull.Value);
                     cmd.Parameters.AddWithValue("@bgimage", animal.BgImage != null ? animal.BgImage : DBNull.Value);
                     cmd.Parameters.AddWithValue("@species", animal.Species != null ? animal.Species : DBNull.Value);

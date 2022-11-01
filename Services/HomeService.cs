@@ -49,7 +49,7 @@ public class HomeService
 
     private List<Animal> SortAnimals(List<Animal> animals, string order, string sortBy)
     {
-        Func<Animal, object> keySelector = null;
+        Func<Animal, object>? keySelector = null;
         switch (sortBy)
         {
             case "name":

@@ -15,10 +15,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css" integrity="sha512-kDmbIQZ10fxeKP5NSt3+tz77HO42IJiS+YPIirOIKTdokl4LtuXYo3NNvq9mTAF+rzdV1plp0sm9E6nvtVpnFQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
 
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    @RenderSection("Styles", false)
 
-   @* <script type="text/javascript"
-        src="http://maps.google.com/maps/api/js?key=AIzaSyD2lVySt6Jrpsi_rpUFxvmJfdYTJHqS-48&sensor=false">
-</script>*@
 </head>
 <body>
     <header>
@@ -26,26 +24,23 @@
 
         @if (@Context.Session.GetString("Name") == null)
         {
-            <button id="login" class="login">
-                <a asp-controller="Account" asp-action="Login">LogIn</a>
-            </button>
-
-            <button id="register" class="login">
-                <a asp-controller="Account" asp-action="Register">Register</a>
-            </button>
+            <div class="controll-button-outer">
+            <a id="login" class="control-button" asp-controller="Account" asp-action="Login">Bejelentkezés</a>
+            </div>
+            <div class="controll-button-outer">
+            <a id="register" class="control-button" asp-controller="Account" asp-action="Register">Regisztráció</a>
+            </div>
         }
         else
         {
-            <button id="logout" class="logout">
-                <a asp-controller="Account" asp-action="LogOut">LogOut @Context.Session.GetString("Name")</a>
-            </button>
+            <a id="logout" class="control-button" asp-controller="Account" asp-action="LogOut">Kilépés: @Context.Session.GetString("Name")  </a>
         }
     </header>
     <nav id="nav">
         <ul>
-            <li><a href="#"><i class="fi-home"></i> Home</a></li>
-            <li><a href="#"><i class="fi-target"></i>Services</a></li>
-            <li><a href="#"><i class="fi-at-sign"></i>Contact</a></li>
+            <li><a asp-controller="Home" asp-action="Donations"><i class="fi-home"></i> Adományok </a></li>
+            <li><a asp-controller="Home" asp-action="Adoption"><i class="fi-target"></i> Örökbefogadás </a></li>
+            <li><a asp-controller="Home" asp-action="Connections"><i class="fi-at-sign"></i> Kapcsolat </a></li>
         </ul>
     </nav>
     
@@ -55,9 +50,9 @@
         </main>
     </div>
 
-    <button id="themeSwitch" class="switchLight">
-        Activate Dark Theme
-    </button>
+    <a id="themeSwitch" class="control-button">
+        Activate Dark Theme  
+    </a>
 
     <footer>
         <ul>

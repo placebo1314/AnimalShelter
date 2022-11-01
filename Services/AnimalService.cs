@@ -25,7 +25,6 @@ public class AnimalService
         List<IFormFile> postedFiles = new List<IFormFile>();
         postedFiles.Add(image);
         postedFiles.Add(bgImage);
-        string message = "";
         FileValidationModel validate = ValidateFiles(postedFiles);
         if (validate.Valid)
             postedFiles = validate.List;
@@ -111,6 +110,8 @@ public class AnimalService
             animal.Image = original.Image;
         if (animal.BgImage == null)
             animal.BgImage = original.BgImage;
+        if (animal.Description == null)
+            animal.Description = original.Description;
         _animalsDao.Edit(animal);
         return animal.Name + " Edited." + message;
     }
