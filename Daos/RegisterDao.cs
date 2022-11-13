@@ -93,34 +93,6 @@ namespace TestProject02.Daos
             }
         }
 
-
-
-        //public void AddAdmin(RegisterAdminModel item)
-        //{
-        //    if (Utils.PasswordHelper.HashString(item.AdminKey) == "C1C224B03CD9BC7B6A86D77F5DACE40191766C485CD55DC48CAF9AC873335D6F")
-        //        {
-        //        const string cmdText = @"INSERT INTO adm1ns (name,password)
-        //                        VALUES (@name, @password)
-        //                        SELECT SCOPE_IDENTITY();";
-
-        //        using (var connection = new SqlConnection(_connectionString))
-        //        {
-        //            var cmd = new SqlCommand(cmdText, connection);
-        //            if (connection.State == ConnectionState.Closed)
-        //                connection.Open();
-
-        //            cmd.Parameters.AddWithValue("@name", item.Username);
-        //            cmd.Parameters.AddWithValue("@password", Utils.PasswordHelper.HashString(item.Password));
-
-
-        //            cmd.ExecuteNonQuery();
-        //            connection.Close();
-        //        }
-        //    } else{
-               
-        //    }
-        //}
-
         public User Login(LoginModel login)
         {
             const string cmdText = @"SELECT * FROM users WHERE email_address = @email_address";
@@ -210,6 +182,28 @@ namespace TestProject02.Daos
         }
 
 
+        public void DeleteUser(string username)
+        {
+            const string cmdText = @"DELETE FROM users WHERE name=@name;";
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    var cmd = new SqlCommand(cmdText, connection);
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
+
+                    cmd.Parameters.AddWithValue("@name", username);
+
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+            catch (SqlException e)
+            {
+                throw new RuntimeWrappedException(e);
+            }
+        }
 
 
 
