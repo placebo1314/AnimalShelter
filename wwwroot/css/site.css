@@ -218,10 +218,21 @@ td {
     max-height: 2rem;
     padding: 0 0.4rem;
 }
-
-@media only screen and (max-width: 768px) {
-
+.textbox {
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
+    .textbox p {
+        max-width: 85%;
+    }
+.map {
+    max-height: 18rem;
+    max-width: 25rem;
+}
+
+    @media only screen and (max-width: 768px) {
+    }
 
 /*footer: */
 footer {

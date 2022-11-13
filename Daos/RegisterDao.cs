@@ -32,7 +32,7 @@ namespace TestProject02.Daos
             return instance;
         }
 
-        public IEnumerable<User> GetAll()
+        public List<User> GetAll()
         {
             const string cmdText = @"SELECT * FROM users;";
             try

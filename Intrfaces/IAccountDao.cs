@@ -4,7 +4,7 @@ namespace TestProject02.Intrfaces;
 
 public interface IAccountDao
 {
-    IEnumerable<User> GetAll();
+    List<User> GetAll();
     void Add(RegisterModel item);
     User Login(LoginModel login);
     void RemoveAdmin(int id);
