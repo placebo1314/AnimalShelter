@@ -1,4 +1,4 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
@@ -37,8 +37,8 @@ namespace UnitTests
             };
             registerDao.Add(item);
             var isContain = false;
-            foreach(var user in registerDao.GetAll())
-                if(user.Name == item.Username && user.Email == item.Email)
+            foreach (var user in registerDao.GetAll())
+                if (user.Name == item.Username && user.Email == item.Email)
                     isContain = true;
 
             Assert.That(isContain, Is.EqualTo(true));
@@ -77,7 +77,7 @@ namespace UnitTests
 
             Assert.IsTrue(user.Admin == "N");
 
-            registerDao.AddAdmin(2);
+            registerDao.AddAdmin(1);
         }
     }
 }

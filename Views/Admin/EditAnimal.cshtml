@@ -1,4 +1,8 @@
 ﻿@model TestProject02.Models.Animal
+@section Styles {
+    <link href="~/css/glassEffect.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/modal.css" rel="stylesheet" type="text/css" />
+}
 @{
     ViewData["Title"] = "EditAnimal";
 }
@@ -61,7 +65,21 @@
     <span style="color:green">@Html.Raw(ViewBag.Message)</span>
 </form>
 
-<div class="animal-card">
+    <div id=@ViewBag.animal.Id class="edit-modal" style="background-image: url('@ViewBag.animal.BgImage');">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="animal-card">
+                <h2>@ViewBag.animal.Name</h2>
+                <h4>@ViewBag.animal.Species - @ViewBag.animal.Type</h4>
+                <p>@ViewBag.animal.Inclusion - (@ViewBag.animal.Age éves @ViewBag.animal.Sex) @ViewBag.animal.Description</p>
+                <img src=@ViewBag.animal.Image class="card-image">
+            </div>
+        </div>
+    </div>
+
+@*<div class="animal-card">
         <div class="card-description-container" style="background-image: url('@ViewBag.animal.BgImage');">
         <div class="card-description">
         <h2>@ViewBag.animal.Name (@ViewBag.animal.Age)</h2>
@@ -71,6 +89,6 @@
         </div>
         </div>
         <img src=@ViewBag.animal.Image class="card-image">
-</div>
+</div>*@
 
 </div>

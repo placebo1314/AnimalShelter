@@ -152,7 +152,7 @@ section {
 .edit-body {
     display: flex;
     flex-direction: row;
-    width: 15rem;
+    width: 100%;
 }
 
 #message {
