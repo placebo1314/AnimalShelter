@@ -1,13 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Collections.Generic;
-using System.Globalization;
-using TestProject02.Daos;
-using TestProject02.Intrfaces;
+﻿using AnimalShelter.Interfaces;
 using TestProject02.Models;
 
-namespace TestProject02.Services;
+namespace AnimalShelter.Services;
 
-public class HomeService
+public class HomeService : IHomeService
 {
     private readonly IAnimalsDao _animalsDao;
     const int pageSize = 5;
@@ -73,5 +69,4 @@ public class HomeService
         }
         return animals;
     }
-
 }

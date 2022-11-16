@@ -1,21 +1,16 @@
-﻿using System.Data.SqlClient;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using AnimalShelter.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using TestProject02.Models;
-using TestProject02.Services;
 
-namespace TestProject02.Controllers;
+namespace AnimalShelter.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-    //private AnimalService _animalService;
-    private HomeService _homeService;
+    private IHomeService _homeService;
 
-    public HomeController(ILogger<HomeController> logger, AnimalService animalService, HomeService homeService)
+    public HomeController(IHomeService homeService)
     {
-        _logger = logger;
-        //_animalService = animalService;
         _homeService = homeService;
     }
 

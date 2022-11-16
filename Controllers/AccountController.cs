@@ -9,15 +9,16 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
+using AnimalShelter.Interfaces;
+using AnimalShelter.Services;
 using TestProject02.Daos;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
-using TestProject02.Services;
 
 public class AccountController : Controller
 {
-    private AccountService _accountService;
+    private IAccountService _accountService;
 
-    public AccountController(AccountService accountService)
+    public AccountController(IAccountService accountService)
     {
         _accountService = accountService;
     }

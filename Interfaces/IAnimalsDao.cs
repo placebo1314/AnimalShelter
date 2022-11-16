@@ -1,6 +1,6 @@
 ﻿using TestProject02.Models;
 
-namespace TestProject02.Intrfaces;
+namespace AnimalShelter.Interfaces;
 
 public interface IAnimalsDao
 {

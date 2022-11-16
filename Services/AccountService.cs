@@ -1,27 +1,15 @@
-﻿using TestProject02.Daos;
-using TestProject02.Intrfaces;
+﻿using AnimalShelter.Interfaces;
 using TestProject02.Models;
 
-namespace TestProject02.Services
+namespace AnimalShelter.Services
 {
-    public class AccountService
+    public class AccountService : IAccountService
     {
         private readonly IAccountDao _userDao;
-        //private static AccountService instance;
-
         public AccountService(IAccountDao userDao)
         {
             _userDao = userDao;
         }
-        //public static AccountService GetInstance(string connectionString)
-        //{
-        //    if (instance == null)
-        //    {
-        //        instance = new AccountService(RegisterDao.GetInstance(connectionString));
-        //    }
-
-        //    return instance;
-        //}
 
         public void AddUser(RegisterModel register)
         {

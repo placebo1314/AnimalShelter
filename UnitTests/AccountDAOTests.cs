@@ -1,10 +1,5 @@
 ﻿using NUnit.Framework;
-using System.Data.SqlClient;
-using System.Data;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using TestProject02.Daos;
-using TestProject02.Intrfaces;
 using TestProject02.Models;
 
 namespace UnitTests

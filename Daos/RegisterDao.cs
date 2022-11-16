@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
+﻿using System.Data;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using TestProject02.Models;
-using Microsoft.AspNetCore.Http;
 using System.Data.SqlClient;
-using TestProject02.Intrfaces;
+using AnimalShelter.Interfaces;
 
 namespace TestProject02.Daos
 {
@@ -28,7 +23,6 @@ namespace TestProject02.Daos
             {
                 instance = new RegisterDao(connectionString);
             }
-
             return instance;
         }
 

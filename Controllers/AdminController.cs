@@ -2,23 +2,24 @@
 
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 using TestProject02.Models;
-using TestProject02.Services;
 using System.Collections.Generic;
 using System.IO;
 using static System.Net.Mime.MediaTypeNames;
 using System.Data;
+using AnimalShelter.Interfaces;
+using AnimalShelter.Services;
 
 namespace TestProject02.Controllers
 {
     public class AdminController : Controller
     {
         string folder = "Uploads";
-        private AnimalService _animalService;
-        private AccountService _accountService;
+        private IAnimalService _animalService;
+        private IAccountService _accountService;
         private IWebHostEnvironment Environment;
         private readonly ILogger<AccountController> _logger;
 
-        public AdminController(ILogger<AccountController> logger, IWebHostEnvironment _environment, AnimalService animalService, AccountService accountService)
+        public AdminController(ILogger<AccountController> logger, IWebHostEnvironment _environment, IAnimalService animalService, IAccountService accountService)
         {
             Environment = _environment;
             _animalService = animalService;

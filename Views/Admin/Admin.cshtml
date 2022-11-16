@@ -33,7 +33,7 @@
                     <td><img src=@element.BgImage class="tiny-image"></td>
                     <td>
                         <a asp-controller="Admin"
-                   asp-action="Edit" asp-route-id=@element.Id><i class="fi-page-edit"></i></a>
+                   asp-action="EditAnimal" asp-route-id=@element.Id><i class="fi-page-edit"></i></a>
                     </td>
                     <td><a asp-controller="Admin"
                    asp-action="DeleteAnimal" asp-route-id=@element.Id onclick="return confirm('Delete @element.Name?')">

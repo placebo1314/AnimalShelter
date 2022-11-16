@@ -1,26 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.IO;
-using System.Xml.Linq;
-using TestProject02.Daos;
-using TestProject02.Intrfaces;
+﻿using AnimalShelter.Interfaces;
 using TestProject02.Models;
-using static System.Net.WebRequestMethods;
 
+namespace AnimalShelter.Services;
 
-namespace TestProject02.Services;
-
-public class AnimalService
+public class AnimalService : IAnimalService
 {
     private readonly IAnimalsDao _animalsDao;
-    private readonly IAccountDao _userDao;
 
-    public AnimalService(IAnimalsDao animalsDao, IAccountDao userDao)
+    public AnimalService(IAnimalsDao animalsDao)
     {
         _animalsDao = animalsDao;
-        _userDao = userDao;
     }
 
-    public string AddAnimal(Models.Animal animal, IFormFile image, IFormFile bgImage, string path, string folder)
+    public string AddAnimal(Animal animal, IFormFile image, IFormFile bgImage, string path, string folder)
     {
         List<IFormFile> postedFiles = new List<IFormFile>();
         postedFiles.Add(image);
@@ -56,7 +48,7 @@ public class AnimalService
         return _animalsDao.GetAll(filter);
     }
 
-    internal string DeleteAnimal(int id, string path)
+    public string DeleteAnimal(int id, string path)
     {
         Animal animal = _animalsDao.Get(id);
         if(animal.Image != null)
@@ -67,7 +59,7 @@ public class AnimalService
         return animal.Name + " deleted!";
     }
 
-    internal string EditAnimal(Animal animal, IFormFile image, IFormFile bgImage, string path, string folder)
+    public string EditAnimal(Animal animal, IFormFile image, IFormFile bgImage, string path, string folder)
     {
         List<IFormFile> postedFiles = new List<IFormFile>();
         postedFiles.Add(image);
@@ -116,7 +108,7 @@ public class AnimalService
         return animal.Name + " Edited." + message;
     }
 
-    internal Animal GetAnimal(int id)
+    public Animal GetAnimal(int id)
     {
         return _animalsDao.Get(id);
     }

@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Data;
 using TestProject02.Models;
 using System.Runtime.CompilerServices;
-using Microsoft.Extensions.Configuration;
-using System.Xml.Linq;
-using TestProject02.Intrfaces;
+using AnimalShelter.Interfaces;
 
 namespace TestProject02.Daos
 {
