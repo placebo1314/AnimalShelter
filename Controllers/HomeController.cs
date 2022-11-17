@@ -7,7 +7,7 @@ namespace AnimalShelter.Controllers;
 
 public class HomeController : Controller
 {
-    private IHomeService _homeService;
+    private readonly IHomeService _homeService;
 
     public HomeController(IHomeService homeService)
     {

@@ -7,9 +7,5 @@ namespace AnimalShelter.Interfaces
         void AddUser(RegisterModel register);
         public User Login(LoginModel login);
         public void Logout(ISession session);
-        public void RemoveAdmin(int id);
-        public void AddAdmin(int id);
-        public IEnumerable<User> GetAllUsers();
-
     }
 }

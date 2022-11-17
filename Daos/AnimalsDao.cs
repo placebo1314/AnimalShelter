@@ -1,27 +1,27 @@
-﻿using System.Data.SqlClient;
-using System.Data;
-using TestProject02.Models;
+﻿using System.Data;
+using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 using AnimalShelter.Interfaces;
+using TestProject02.Models;
 
-namespace TestProject02.Daos
+namespace AnimalShelter.Daos
 {
     public class AnimalsDao : IAnimalsDao
     {
         private readonly string _connectionString;
-        private static AnimalsDao instance;
+        private static AnimalsDao? _instance;
 
-        public AnimalsDao(string connectionString)
+        private AnimalsDao(string connectionString)
         {
             _connectionString = connectionString;
         }
-        public static AnimalsDao GetInstance(string connectionString)
+        public static AnimalsDao? GetInstance(string connectionString)
         {
-            if (instance == null)
+            if (_instance == null)
             {
-                instance = new AnimalsDao(connectionString);
+                _instance = new AnimalsDao(connectionString);
             }
-            return instance;
+            return _instance;
         }
 
         public Animal Get(int id)

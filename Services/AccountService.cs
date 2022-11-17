@@ -3,7 +3,7 @@ using TestProject02.Models;
 
 namespace AnimalShelter.Services
 {
-    public class AccountService : IAccountService
+    public class AccountService : IAccountService, IAdminService
     {
         private readonly IAccountDao _userDao;
         public AccountService(IAccountDao userDao)
@@ -37,12 +37,5 @@ namespace AnimalShelter.Services
         {
             return _userDao.GetAll();
         }
-        
-
-        //public void AddAdmin(RegisterAdminModel register)
-        //{
-        //    _userDao.AddAdmin(register);
-        //}
-
     }
 }

@@ -13,15 +13,15 @@ namespace TestProject02.Controllers
 {
     public class AdminController : Controller
     {
-        string folder = "Uploads";
-        private IAnimalService _animalService;
-        private IAccountService _accountService;
-        private IWebHostEnvironment Environment;
+        private const string Folder = "Uploads";
+        private readonly IAnimalService _animalService;
+        private readonly IAdminService _accountService;
+        private readonly IWebHostEnvironment _environment;
         private readonly ILogger<AccountController> _logger;
 
-        public AdminController(ILogger<AccountController> logger, IWebHostEnvironment _environment, IAnimalService animalService, IAccountService accountService)
+        public AdminController(ILogger<AccountController> logger, IWebHostEnvironment _environment, IAnimalService animalService, IAdminService accountService)
         {
-            Environment = _environment;
+            this._environment = _environment;
             _animalService = animalService;
             _accountService = accountService;
             _logger = logger;
@@ -41,9 +41,9 @@ namespace TestProject02.Controllers
         [HttpPost]
         public IActionResult AddAnimal(Models.Animal animal, IFormFile image, IFormFile bgImage, string inclusion)
         {
-            string path = Path.Combine(Environment.WebRootPath, folder);
+            string path = Path.Combine(_environment.WebRootPath, Folder);
             animal.Inclusion = inclusion;
-            string message = _animalService.AddAnimal(animal, image, bgImage, path, folder);
+            string message = _animalService.AddAnimal(animal, image, bgImage, path, Folder);
             ViewBag.message = message;
             ViewBag.animals = _animalService.GetAllAnimals(null);
             
@@ -53,7 +53,7 @@ namespace TestProject02.Controllers
         [Route("Admin/Delete/{id:int}")]
         public IActionResult DeleteAnimal(int id)
         {
-            string message = _animalService.DeleteAnimal(id, Environment.WebRootPath);
+            string message = _animalService.DeleteAnimal(id, _environment.WebRootPath);
             ViewBag.message = message;
             ViewBag.animals = _animalService.GetAllAnimals(null);
             _logger.LogWarning("{0} id: {1} Admin: {2}", message, id, HttpContext.Session.GetString("Name"));
@@ -70,7 +70,7 @@ namespace TestProject02.Controllers
         [HttpPost]
         public IActionResult EditAnimal(Animal animal, IFormFile image, IFormFile bgImage)
         {
-            string message = _animalService.EditAnimal(animal, image, bgImage, Path.Combine(Environment.WebRootPath, folder), folder);
+            string message = _animalService.EditAnimal(animal, image, bgImage, Path.Combine(_environment.WebRootPath, Folder), Folder);
             ViewBag.message = message;
             _logger.LogWarning("{0} id: {1} Admin: {2}", message, animal.Id, HttpContext.Session.GetString("Name"));
             ViewBag.animals = _animalService.GetAllAnimals(null);

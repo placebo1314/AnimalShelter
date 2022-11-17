@@ -1,12 +1,12 @@
-﻿using NUnit.Framework;
-using TestProject02.Daos;
+﻿using AnimalShelter.Daos;
+using NUnit.Framework;
 using TestProject02.Models;
 
 namespace UnitTests
 {
     public class Tests
     {
-        private RegisterDao registerDao;
+        private RegisterDao? registerDao;
 
         [SetUp]
         public void Setup()

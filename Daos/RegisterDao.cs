@@ -1,15 +1,15 @@
 ﻿using System.Data;
-using System.Runtime.CompilerServices;
-using TestProject02.Models;
 using System.Data.SqlClient;
+using System.Runtime.CompilerServices;
 using AnimalShelter.Interfaces;
+using TestProject02.Models;
 
-namespace TestProject02.Daos
+namespace AnimalShelter.Daos
 {
     public class RegisterDao : IAccountDao
     {
         private readonly string _connectionString;
-        private static RegisterDao instance;
+        private static RegisterDao? _instance;
 
 
         private RegisterDao(string connectionString)
@@ -17,13 +17,11 @@ namespace TestProject02.Daos
             _connectionString = connectionString;
         }
 
-        public static RegisterDao GetInstance(string connectionString)
+        public static RegisterDao? GetInstance(string connectionString)
         {
-            if (instance == null)
-            {
-                instance = new RegisterDao(connectionString);
-            }
-            return instance;
+            if (_instance == null)
+                _instance = new RegisterDao(connectionString);
+            return _instance;
         }
 
         public List<User> GetAll()
@@ -78,7 +76,7 @@ namespace TestProject02.Daos
                     connection.Open();
 
                 cmd.Parameters.AddWithValue("@name", item.Username);
-                cmd.Parameters.AddWithValue("@password", Utils.PasswordHelper.HashString(item.Password));
+                cmd.Parameters.AddWithValue("@password", TestProject02.Utils.PasswordHelper.HashString(item.Password));
 
                 cmd.Parameters.AddWithValue("@email_address", item.Email);
 
@@ -106,7 +104,7 @@ namespace TestProject02.Daos
 
                     while (reader.Read())
                     {
-                        if (Equals(Utils.PasswordHelper.HashString(login.Password), (string)reader["password"]))
+                        if (Equals(TestProject02.Utils.PasswordHelper.HashString(login.Password), (string)reader["password"]))
                         {
                             user = new User()
                             {

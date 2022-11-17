@@ -11,7 +11,6 @@ using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using AnimalShelter.Interfaces;
 using AnimalShelter.Services;
-using TestProject02.Daos;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 
 public class AccountController : Controller

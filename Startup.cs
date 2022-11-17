@@ -1,7 +1,7 @@
+using AnimalShelter.Daos;
 using AnimalShelter.Interfaces;
 using AnimalShelter.Services;
 using Serilog;
-using TestProject02.Daos;
 
 namespace AnimalShelter;
 
@@ -24,6 +24,7 @@ public class Startup
         services.AddSingleton<IAnimalService, AnimalService>();
         services.AddSingleton<IAccountService, AccountService>();
         services.AddSingleton<IHomeService, HomeService>();
+        services.AddSingleton<IAdminService, AccountService>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
